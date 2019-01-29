@@ -1,32 +1,29 @@
-
-var my50shades = [50];
-var offset = 0;
-var slope = 20;
+var offset;
+var slope;
 
 
 function setup() {
-	createCanvas(windowWidth,windowHeight);
+	createCanvas(windowWidth, windowHeight);
 	noStroke();
-	
-
 }
 
 function draw() {
-	
-	translate(windowWidth/2,windowHeight/2);
+	translate(windowWidth/2, windowHeight/2);
+
+	//draw an array of the shape with slope, color, and number of itterations
+	//dependent on windowWidth
 	slope = windowWidth/10;
-
-	for(var offset = -windowWidth/5; offset < windowWidth/5; offset = offset + 30){
-		fill(abs(offset));
-		drawShape(offset);
+	for(var i = -windowWidth/5; i < windowWidth/5; i = i + 30){
+		fill(abs(i));
+		drawShape(i);
     }
-
  }
 
  function windowResized() {
  	resizeCanvas(windowWidth, windowHeight);
  }
 
+ //function to generate the repeated shape
  function drawShape(offset) {
  	beginShape()
  	vertex(-20 + offset - slope, -200);
